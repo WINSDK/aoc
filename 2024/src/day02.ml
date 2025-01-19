@@ -1,8 +1,7 @@
 open! Core
 open Utils
 
-module Config = struct
-  let short_input = {|
+let short_input = {|
 7 6 4 2 1
 1 2 7 8 9
 9 7 6 2 1
@@ -10,9 +9,6 @@ module Config = struct
 8 6 4 4 1
 1 3 6 7 9
 |}
-
-  let real_input = lazy (Utils.Commands.input ~day:2 ~year:2024)
-end
 
 module Parsed = struct
   type t = int list list [@@deriving sexp]
@@ -25,7 +21,7 @@ module Parsed = struct
   ;;
 
   let%expect_test "short_input" =
-    printf !"%{sexp: t}\n%!" (parse Config.short_input);
+    printf !"%{sexp: t}\n%!" (parse short_input);
     [%expect
       {| ((7 6 4 2 1) (1 2 7 8 9) (9 7 6 2 1) (1 3 2 4 5) (8 6 4 4 1) (1 3 6 7 9)) |}]
   ;;
@@ -56,7 +52,7 @@ module Part1 = struct
   ;;
 
   let%expect_test "part 1" =
-    with_parsed f Config.short_input;
+    with_parsed f short_input;
     [%expect {| part 1: 2 |}]
   ;;
 end
@@ -73,7 +69,7 @@ module Part2 = struct
   ;;
 
   let%expect_test "part 2" =
-    with_parsed f Config.short_input;
+    with_parsed f short_input;
     [%expect {| part 2: 4 |}]
   ;;
 end
