@@ -1,0 +1,4 @@
+(executable
+ (name main)
+ (libraries core_unix.command_unix aoc2024)
+ (preprocess (pps ppx_jane)))

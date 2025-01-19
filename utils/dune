@@ -1,0 +1,5 @@
+(library
+ (name utils)
+ (libraries core core_unix.sys_unix core_unix.filename_unix)
+ (inline_tests)
+ (preprocess (pps ppx_jane)))

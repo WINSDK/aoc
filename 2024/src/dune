@@ -1,0 +1,6 @@
+(library
+ (name aoc2024)
+ (libraries core utils)
+ (inline_tests)
+ (preprocess (pps ppx_jane)))
+
